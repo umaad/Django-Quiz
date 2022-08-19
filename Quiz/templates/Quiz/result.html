@@ -1,0 +1,64 @@
+{% extends 'Quiz/dependencies.html' %}
+
+{% block content %}
+
+<div class="container ">
+     <img class="card-img-top" height="300px" src="https://www.thebluediamondgallery.com/wooden-tile/images/results.jpg" alt="Card image cap">
+         <div class=" cold-md-5">
+                <h4>Recent Attempt Detail</h4>
+                <p class="card-text">Percentage: {{percent}}%</p>
+                <p class="card-text">Time Taken: {{time}} seconds</p>
+                <p class="card-text">Correct answers: {{correct}}</p>
+                <p class="card-text">Incorrect answers: {{wrong}}</p>
+                <p class="card-text">Total questions: {{total}}</p>
+
+               {%  if correct  == 0 or correct  == 1 or correct  ==  2 %}
+                <h5 class="alert alert-info">Please try again!</h5>
+                <a class="btn btn-sm btn-info" style="margin-left: 95px;" href="{% url 'home' %}">Re-attempt</a>
+               {%  elif correct == 3 %}
+                 <h5 style="margin-left: 95px;">Good Job!</h5>
+               {%  elif correct == 4 %}
+                 <h5 style="margin-left: 95px;">Excellent Work!</h5>
+                {%  elif correct == 5 %}
+                 <h5 style="margin-left: 95px;">You are a genius!</h5>
+               {%  else %}
+                <h5 style="margin-left: 95px;">Try Again !!</h5>
+                {% endif %}
+    </div>
+
+
+
+</div>
+
+{% endblock %}
+
+   <!-- <div class="row" align="centre " >
+              <h4>All Attempts Detail</h4>
+            <div class=" cold-md-5">
+            <p class="card-text">No of attempts: {{no_of_attempts}}</p>
+            <p class="card-text">Average Score: {{averagescore}}</p>
+            <p class="card-text">Max Score: {{highestscore}}</p>
+            <p class="card-text">Min Score: {{lowestscore}}</p>
+            </div>
+            <div class=" cold-md-5">
+
+                <table class="table">
+                    <thead><th>SN</th>
+                    <th>User</th>
+                    <th>Correct</th>
+                    <th>In Correct</th></thead>
+                    <tbody>
+                    {% for ud  in details%}
+                    <tr>
+                    <td>{{ forloop.counter }}</td>
+                        <td>{{ud.user}}</td>
+                    <td>{{ud.rightans}}</td>
+                    <td>{{ud.wrongans}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>-->

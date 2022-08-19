@@ -1,0 +1,39 @@
+{% extends 'Quiz/dependencies.html' %}
+
+{% block content %}
+
+<div class="container">
+    <img class="card-img-top" height="300px"  src="https://www.thebluediamondgallery.com/wooden-tile/images/results.jpg" alt="Card image cap">
+    <div class="row" align="centre" style="display:flex;" >
+            <div class=" cold-md-3">
+                <h4>All Attempts Detail</h4>
+                   <p class="card-text">No of attempts: {{no_of_attempts}}</p>
+                    <p class="card-text">Average Score: {{averagescore}}</p>
+                    <p class="card-text">Max Score: {{highestscore}}</p>
+                    <p class="card-text">Min Score: {{lowestscore}}</p>
+            </div>
+            <div class=" cold-md-5"></div>
+            <div class=" cold-md-4">
+                <table class="table">
+                    <thead><th>SN</th>
+                    <th>User</th>
+                    <th>Correct</th>
+                    <th>In Correct</th></thead>
+                    <tbody>
+                    {% for ud  in details%}
+                    <tr>
+                    <td>{{ forloop.counter }}</td>
+                        <td>{{ud.user}}</td>
+                    <td>{{ud.rightans}}</td>
+                    <td>{{ud.wrongans}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+
+      </div>
+</div>
+
+{% endblock %}
